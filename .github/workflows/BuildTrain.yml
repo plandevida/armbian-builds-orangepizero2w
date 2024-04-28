@@ -178,6 +178,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        if: ${{ fromJson(needs.setup.outputs.configfiles-orangepi) }} != ''
         configfile: ${{ fromJson(needs.setup.outputs.configfiles-orangepi) }}
     steps:
       - name: Checkout Repository
